@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>InnovADN | Soluciones de Software</title>
+
+    <link rel="shortcut icon" href="https://raw.githubusercontent.com/innovadn/multimedia/main/iconos-varios/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+
+        :root{
+            --navy:#1F3A5F;
+            --blue:#2563EB;
+            --teal:#0F766E;
+            --amber:#D97706;
+            --purple:#7C3AED;
+            --cyan:#0891B2;
+
+            --bg:#F8FAFC;
+            --card:#FFFFFF;
+
+            --text:#0F172A;
+            --muted:#64748B;
+            --border:#E2E8F0;
+
+            --shadow:
+            0 10px 30px rgba(15,23,42,.06);
+
+            --radius:20px;
+        }
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        html{
+            scroll-behavior:smooth;
+        }
+
+        body{
+            font-family:'Inter',sans-serif;
+            background:var(--bg);
+            color:var(--text);
+            line-height:1.65;
+        }
+
+        .container{
+            width:min(1120px,92%);
+            margin:auto;
+        }
+
+        section{
+            padding:5rem 0;
+        }
+
+        #logotipo{
+            max-width: 250px;
+        }
+        .hero{
+            background:
+            radial-gradient(circle at top right,
+                rgba(37,99,235,.08),
+                transparent 35%),
+            radial-gradient(circle at left center,
+                rgba(15,118,110,.08),
+                transparent 30%);
+        }
+
+        .hero-badge{
+            margin-bottom:1.5rem;
+        }
+
+        .hero h1{
+            max-width:800px;
+            font-size:clamp(2.3rem,6vw,4.2rem);
+            line-height:1.08;
+            margin-bottom:1.25rem;
+        }
+
+        .hero p{
+            font-size:1.12rem;
+            color:var(--muted);
+            max-width:700px;
+        }
+
+        .hero-actions{
+            margin-top:2rem;
+
+            display:flex;
+            gap:1rem;
+            flex-wrap:wrap;
+        }
+
+        .btn{
+            text-decoration:none;
+            padding:1rem 1.4rem;
+            border-radius:14px;
+            font-weight:600;
+            transition:.2s ease;
+        }
+
+        .btn-primary{
+            background:var(--navy);
+            color:white;
+        }
+
+        .btn-primary:hover{
+            transform:translateY(-2px);
+        }
+
+        .btn-secondary{
+            background:white;
+            border:1px solid var(--border);
+            color:var(--text);
+        }
+
+        .btn-secondary:hover{
+            transform:translateY(-2px);
+        }
+
+        .note{
+            background:#EFF6FF;
+            border:1px solid #BFDBFE;
+
+            border-radius:20px;
+
+            padding:1.5rem;
+
+            display:flex;
+            gap:1rem;
+
+            align-items:flex-start;
+        }
+
+        .note-icon{
+            font-size:1.4rem;
+        }
+
+        .note h2{
+            font-size:1.15rem;
+            margin-bottom:.5rem;
+        }
+
+        .note p{
+            color:var(--muted);
+        }
+
+        .section-title{
+            text-align:center;
+            margin-bottom:3rem;
+        }
+
+        .section-title h2{
+            font-size:2rem;
+            margin-bottom:.75rem;
+        }
+
+        .section-title p{
+            color:var(--muted);
+            max-width:700px;
+            margin:auto;
+        }
+
+        .grid{
+            display:grid;
+            gap:1.5rem;
+        }
+
+        .solutions-grid{
+            grid-template-columns:
+            repeat(auto-fit,minmax(280px,1fr));
+        }
+
+        .card{
+            background:var(--card);
+            border-radius:var(--radius);
+            border:1px solid var(--border);
+            overflow:hidden;
+            box-shadow:var(--shadow);
+        }
+
+        .card-top{
+            height:6px;
+        }
+
+        .card-content{
+            padding:1.5rem;
+        }
+
+        .card h3{
+            margin-bottom:1rem;
+        }
+
+        .card ul{
+            padding-left:1.1rem;
+        }
+
+        .card li{
+            margin-bottom:.55rem;
+            color:#334155;
+        }
+
+        .web .card-top{
+            background:var(--blue);
+        }
+
+        .desktop .card-top{
+            background:var(--teal);
+        }
+
+        .auto .card-top{
+            background:var(--amber);
+        }
+
+        .api .card-top{
+            background:var(--purple);
+        }
+
+        .integrations .card-top{
+            background:var(--cyan);
+        }
+
+        .custom .card-top{
+            background:var(--navy);
+        }
+
+        .examples{
+            display:grid;
+            gap:1rem;
+        }
+
+        .example{
+            background:white;
+            border:1px solid var(--border);
+            border-radius:18px;
+            padding:1.4rem;
+        }
+
+        .example-problem{
+            font-weight:600;
+            margin-bottom:.8rem;
+        }
+
+        .example-solution{
+            color:var(--muted);
+        }
+
+        .tessa{
+            background:white;
+            border-radius:24px;
+            padding:2rem;
+            border:1px solid var(--border);
+            box-shadow:var(--shadow);
+        }
+
+        .tessa h2{
+            margin-bottom:1rem;
+        }
+
+        .tessa p{
+            color:var(--muted);
+        }
+
+        .tessa-actions{
+            margin-top:2rem;
+            display:flex;
+            gap:1rem;
+            flex-wrap:wrap;
+        }
+
+        .contact{
+            text-align:center;
+        }
+
+        .contact-box{
+            background:white;
+            border:1px solid var(--border);
+            border-radius:24px;
+            padding:2.5rem;
+            box-shadow:var(--shadow);
+        }
+
+        .contact-box h2{
+            margin-bottom:1rem;
+        }
+
+        .contact-box p{
+            color:var(--muted);
+            max-width:650px;
+            margin:auto;
+        }
+
+        .contact-actions{
+            margin-top:2rem;
+
+            display:flex;
+            justify-content:center;
+            flex-wrap:wrap;
+            gap:1rem;
+        }
+
+        footer{
+            padding:3rem 0;
+            text-align:center;
+            color:var(--muted);
+        }
+
+        footer a{
+            color:inherit;
+            text-decoration:none;
+        }
+
+        @media(max-width:768px){
+
+            section{
+                padding:3.5rem 0;
+            }
+
+            .hero{
+                padding-top:1rem;
+            }
+
+            .hero-actions,
+            .contact-actions,
+            .tessa-actions{
+                flex-direction:column;
+            }
+
+            .btn{
+                text-align:center;
+            }
+
+            .note{
+                flex-direction:column;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <section class="hero">
+
+        <div class="container">
+
+            <div class="hero-content">
+
+                <div class="hero-badge">
+                    <img src="https://raw.githubusercontent.com/dgabrielsl/repositorio_recursos_multimedia/main/email-html/innovadn-logotipo-negro-y-rojo.png" id="logotipo">
+                </div>
+
+                <h1>
+                    ¿Tiene un proceso que podría ser más simple?
+                </h1>
+
+                <p>
+                    Desarrollamos software para automatizar tareas, conectar herramientas,
+                    centralizar información y crear soluciones adaptadas a cada negocio.
+
+                    Desde sitios web hasta sistemas internos, integraciones y plataformas
+                    personalizadas.
+                </p>
+
+                <div class="hero-actions">
+
+                    <a href="#soluciones" class="btn btn-primary">
+                        Ver ejemplos
+                    </a>
+
+                    <a href="#tessa" class="btn btn-secondary">
+                        Proyecto piloto Tessa
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section>
+
+        <div class="container">
+
+            <div class="note">
+
+                <div class="note-icon">
+                    💡
+                </div>
+
+                <div>
+
+                    <h2>
+                        ¿No encuentra su caso?
+                    </h2>
+
+                    <p>
+                        No es necesario que su necesidad encaje exactamente en alguna categoría.
+
+                        Muchas soluciones nacen de procesos específicos de cada negocio.
+
+                        Si existe una tarea que consume demasiado tiempo, requiere varias herramientas
+                        o depende de procesos manuales, podemos evaluar una solución para ese caso
+                        particular.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="soluciones">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>
+                    ¿Qué puede desarrollar InnovADN?
+                </h2>
+
+                <p>
+                    Algunos ejemplos de soluciones que desarrollamos para empresas y organizaciones.
+                </p>
+
+            </div>
+
+            <div class="grid solutions-grid">
+
+                <div class="card web">
+                    <div class="card-top"></div>
+                    <div class="card-content">
+
+                        <h3>🌐 Sitios web</h3>
+
+                        <ul>
+                            <li>Presencia digital</li>
+                            <li>Sitios corporativos</li>
+                            <li>Landing pages</li>
+                            <li>Catálogos digitales</li>
+                            <li>Portales para clientes</li>
+                            <li>Reservas y citas</li>
+                        </ul>
+
+                    </div>
+                </div>
+
+                <div class="card desktop">
+                    <div class="card-top"></div>
+                    <div class="card-content">
+
+                        <h3>🖥️ Aplicaciones de escritorio</h3>
+
+                        <ul>
+                            <li>Facturación</li>
+                            <li>Inventario</li>
+                            <li>Control operativo</li>
+                            <li>Gestión documental</li>
+                            <li>Reportes</li>
+                            <li>Herramientas internas</li>
+                        </ul>
+
+                    </div>
+                </div>
+
+                <div class="card auto">
+                    <div class="card-top"></div>
+                    <div class="card-content">
+
+                        <h3>⚙️ Automatizaciones</h3>
+
+                        <ul>
+                            <li>Procesos repetitivos</li>
+                            <li>Recordatorios</li>
+                            <li>Generación de documentos</li>
+                            <li>Procesamiento de formularios</li>
+                            <li>Seguimiento de clientes</li>
+                            <li>Flujos internos</li>
+                        </ul>
+
+                    </div>
+                </div>
+
+                <div class="card api">
+                    <div class="card-top"></div>
+                    <div class="card-content">
+
+                        <h3>🔌 APIs</h3>
+
+                        <ul>
+                            <li>Conexión entre sistemas</li>
+                            <li>Sincronización de datos</li>
+                            <li>Servicios para aplicaciones</li>
+                            <li>Carga y consulta de archivos</li>
+                            <li>Integraciones personalizadas</li>
+                        </ul>
+
+                    </div>
+                </div>
+
+                <div class="card integrations">
+                    <div class="card-top"></div>
+                    <div class="card-content">
+
+                        <h3>🔗 Integraciones</h3>
+
+                        <ul>
+                            <li>Google Drive</li>
+                            <li>Google Sheets</li>
+                            <li>WhatsApp</li>
+                            <li>Correo electrónico</li>
+                            <li>CRM</li>
+                            <li>Plataformas de pago</li>
+                        </ul>
+
+                    </div>
+                </div>
+
+                <div class="card custom">
+                    <div class="card-top"></div>
+                    <div class="card-content">
+
+                        <h3>🎯 Soluciones a medida</h3>
+
+                        <ul>
+                            <li>Sistemas internos</li>
+                            <li>Dashboards</li>
+                            <li>Portales privados</li>
+                            <li>Gestión de solicitudes</li>
+                            <li>Procesos manuales</li>
+                            <li>Herramientas especializadas</li>
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section>
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>
+                    Ejemplos de necesidades frecuentes
+                </h2>
+
+                <p>
+                    Algunos problemas comunes y posibles enfoques para resolverlos.
+                </p>
+
+            </div>
+
+            <div class="examples">
+
+                <div class="example">
+                    <div class="example-problem">
+                        📋 Copio información manualmente entre formularios y hojas de cálculo.
+                    </div>
+                    <div class="example-solution">
+                        → Automatización del registro, almacenamiento y generación de reportes.
+                    </div>
+                </div>
+
+                <div class="example">
+                    <div class="example-problem">
+                        📞 Mis clientes preguntan constantemente por el estado de sus solicitudes.
+                    </div>
+                    <div class="example-solution">
+                        → Portal web para seguimiento y consulta en tiempo real.
+                    </div>
+                </div>
+
+                <div class="example">
+                    <div class="example-problem">
+                        📊 Utilizamos Excel, correo y WhatsApp para el mismo proceso.
+                    </div>
+                    <div class="example-solution">
+                        → Sistema centralizado con trazabilidad y control.
+                    </div>
+                </div>
+
+                <div class="example">
+                    <div class="example-problem">
+                        📁 Tengo archivos en Google Drive y necesito mostrarlos en mi sitio web.
+                    </div>
+                    <div class="example-solution">
+                        → Integración automática entre ambas plataformas.
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="tessa">
+
+        <div class="container">
+
+            <div class="tessa">
+
+                <h2>
+                    Tessa
+                </h2>
+
+                <p>
+                    Tessa es la plataforma web utilizada por InnovADN para brindar mayor
+                    visibilidad y control sobre los proyectos.
+
+                    Permite dar seguimiento a tareas, revisar avances, mantener trazabilidad
+                    y participar activamente durante el desarrollo.
+                </p>
+
+                <br>
+
+                <p>
+                    Actualmente estamos abriendo un grupo limitado para participar en el
+                    proyecto piloto.
+                </p>
+
+                <div class="tessa-actions">
+
+                    <a href="https://innovadn.com/programa-piloto" class="btn btn-primary">
+                        Aplicar al proyecto piloto
+                    </a>
+
+                    <a href="https://innovadn.com/demo" class="btn btn-secondary">
+                        Ver demo de Tessa
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="contact">
+
+        <div class="container">
+
+            <div class="contact-box">
+
+                <h2>
+                    ¿Tiene una necesidad específica?
+                </h2>
+
+                <p>
+                    Podemos conversar sobre su caso y evaluar posibles alternativas para
+                    su negocio.
+                </p>
+
+                <div class="contact-actions">
+
+                    <a href="https://innovadn.com/contacto" class="btn btn-primary">
+                        Contactar
+                    </a>
+
+                    <a href="https://innovadn.com" class="btn btn-secondary">
+                        Sitio web
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer>
+
+        <div class="container">
+
+            <p>InnovADN</p>
+
+            <br>
+
+            <p>
+                correo@innovadn.com
+                <br>
+                +506 XXXX-XXXX
+            </p>
+
+        </div>
+
+    </footer>
+
+    <script>
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+            anchor.addEventListener('click', function(e) {
+
+                const target = this.getAttribute('href');
+
+                if(target === '#'){
+                    e.preventDefault();
+                    return;
+                }
+
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>
